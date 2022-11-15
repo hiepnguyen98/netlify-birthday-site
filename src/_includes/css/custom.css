@@ -18,11 +18,19 @@ body{
   background-color: darkorchid;
 }
 .card{
-  width: 640px;
+  /* width: 640px;
   height: 60% !important;
   position: absolute;
   margin-top: 10%;
-  margin-left:10% ;
+  margin-left:10% ; */
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -10%;
+  margin-left: -25%;
+  width: 640px;
+  height: 400px;
   -webkit-perspective: 1200px;
   perspective: 1200px;
   transition: 1s;
@@ -141,4 +149,11 @@ body{
   text-align: center;
   letter-spacing: 6px;
   color:#000046
+}
+
+canvas {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
 }
