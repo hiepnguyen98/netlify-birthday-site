@@ -2,19 +2,19 @@
 //     setTimeout(() => {
 //       const card = document.getElementById("flip-card-inner");
 //       card.style.transform = "rotateY(180deg)";
-//     }, 1500);
-//   }, 1000);
+//     }, 2000);
+//   }, 3000);
   
-  setTimeout(() => {
-    setTimeout(openEnvelope, 1000);
-  }, 1000);
+  // setTimeout(() => {
+  //   setTimeout(openEnvelope, 1000);
+  // }, 1000);
   
   function openEnvelope() {
     setInterval(() => {
       document.getElementById("one").style.transform = "rotateX(90deg)";
       document.getElementById("two").style.transform = "rotateX(180deg)";
-      document.getElementById("one").transitionDelay = "0.75s";
-      document.getElementById("two").transitionDelay = "0.75s";
+      document.getElementById("one").style.transitionDelay = "0.75s";
+      document.getElementById("two").style.transitionDelay = "0.5s";
     }, 500);
   
     setTimeout(letterUp, 1000);
@@ -60,10 +60,11 @@
         // lastPos = -i;
         clearInterval(id);
       } else {
-        letter.style.top = -400 + i * 5 + "px";
-        letter.style.transform = "rotate(" + -i / 18 + "deg)";
+        letter.style.top = -400 + i * 4 + "px";
+        letter.style.transform = "rotate(" + -i / 19 + "deg)";
   
-        card.style.transform = "rotate(" + i / 18 + "deg)";
+        //card.style.transform = "rotate(" + i / 19 + "deg)";
+        //card.style.display = "none";
   
         i++;
       }

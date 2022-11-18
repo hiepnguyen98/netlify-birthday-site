@@ -37,14 +37,17 @@ body {
 }
 
 #wrapper {
-  width: 640px;
-  height: 417px;
-  background-color: #3760C9;
-  position: relative;
-  z-index: 0;
+  background-color: transparent;
+  width: 520px;
+  height: 400px;
+  perspective: 1000px;
+  margin: 10%;
   left: 50%;
   margin-left: -15%;
-  transition: 1s;
+  transition: all 0.5s ease-in-out;
+  display: none;
+  position: absolute;
+  opacity: 0;
 }
 
 .lid {
@@ -82,10 +85,10 @@ body {
   width: 100%;
   top: 0;
   left: 0;
-  border-top: 210px solid transparent;
-  border-right: 240px solid #C4DFF0;
-  border-bottom: 210px solid #C4DFF0;
-  border-left: 240px solid #a4d4f2;
+  border-top: 200px solid transparent;
+  border-right: 260px solid #050d3b;
+  border-bottom: 200px solid #050d3b;
+  border-left: 260px solid #050d3b;
   z-index: 3;
 }
 
@@ -96,42 +99,15 @@ body {
   height: 100%;
   border-radius: 15px;
   z-index: 2;
-  -webkit-perspective: 1200px;
-  perspective: 1200px;
   transition: 1s;
 }
 
 #card p {
   text-align: center;
-  font-size: 30px;
-  margin-top: 30px;
+  font-size: 18px;
+  margin-top: 10px;
   color: #3B4049;
 }
-
-/* .wrapper:hover .lid.one {
-    transform: rotateX(90deg);
-    transition-delay: 0s;
-}
-
-.wrapper:hover .lid.two {
-    transform: rotateX(180deg);
-    transition-delay: 0.25s;
-}
-
-.wrapper:hover
-
-.wrapper:hover #card {
-  transform: translateY(-100px);
-  transition-delay: 0.5s;
-}*/
-
-/* #card:hover{
-  transform: rotate(-5deg);
-}
-
-#card:hover #out-side{
-  transform: rotateY(-130deg);
-}  */
 
 #out-side, #in-side{
   height: 100%;
@@ -142,7 +118,7 @@ body {
 
 #in-side {
   background: linear-gradient(to right, #e0e0e0, #fff 30px);
-  line-height: 3;
+  line-height: 1;
   padding: 0 20px;
   text-align: center;
   display: flex;
@@ -240,9 +216,75 @@ body {
   color:#000046
 }
 
-canvas {
+#canvas {
+  position: relative;
   overflow-y: hidden;
   overflow-x: hidden;
   width: 100%;
   margin: 0;
+  z-index: -1;
+}
+
+#img-lv{
+  margin: 35px 2px;
+  height: auto;
+  max-height: 100%;
+}
+
+#flip-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 0;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  
+}
+
+#flip-card-front,
+#flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#flip-card-front {
+  background: url("/img/birthday_BG.jpg") no-repeat;
+  background-size: cover;
+}
+
+#flip-card-back {
+  color: #3760C9;
+  transform: rotateY(180deg);
+  background-color: #3760C9;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+#stamp {
+  position: absolute;
+  top: 10px;
+  flex: 0;
+}
+
+#stamp img {
+  float: right;
+  width: 35%;
+}
+
+#Name {
+  position: absolute;
+  text-align: center;
+  top: 66%;
+  left: 17%;
+  color: #cc327a;
+  font-weight: 800;
+  font-size: 50px;
+  font-family: cursive;
 }

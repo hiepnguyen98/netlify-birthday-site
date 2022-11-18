@@ -1,28 +1,74 @@
+<div
+    id="text-run"
+    class="font-mono text-browngray text-4xl my-6 "
+    style="z-index:2; position: absolute; font-size: 25px; color: #c37f1c;font-weight: bold;">
+    <p class="w-full tracking-tighter typeIt"></p>
+</div>
 <div id="wrapper">
-    <div class="lid one" id="one"></div>
-    <div class="lid two" id="two"></div>
-    <div id="envelope"></div>
-    <div id="card">
-        <div id="out-side">
-            <div class="front">
-                <p>Happy Birthday</p>
-                <div class="cake">
-                    <div class="top-layer"></div>
-                    <div class="midle-layer"></div>
-                    <div class="bottom-layer"></div>
-                    <div class="candle"></div>
+    <div id="flip-card-inner">
+        <div id="flip-card-front">
+            <div id="Name">Lan Vy</div>
+        </div>
+        <div id="flip-card-back">
+            <div class="lid one" id="one"></div>
+            <div class="lid two" id="two"></div>
+            <div id="envelope"></div>
+            <div id="card">
+                <div id="out-side">
+                    <div class="front">
+                        <p>Happy Birthday</p>
+                        <div class="cake">
+                            <div class="top-layer"></div>
+                            <div class="midle-layer"></div>
+                            <div class="bottom-layer"></div>
+                            <div class="candle"></div>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <img id="img-lv" src="/img/lv.jpg">
+                    </div>
+                </div>
+                <div id="in-side">
+                    <p>Chúc em sinh nhật vui vẻ, tràn ngập niềm vui và tiếng cười.... mãi yêu!<span style="color:red">
+                            &#9829;<span></p>
+                            <p>- Hiệp -</p>
+                        </div>
+                    </p>
                 </div>
             </div>
-            <div class="back"></div>
-        </div>
-        <div id="in-side">
-            <p>Chúc em sinh nhật vui vẻ, tràn ngập niềm vui và tiếng cười.... mãi yêu! &#9829;</p>
         </div>
     </div>
-    <canvas id="canvas"></canvas>
 </div>
+<audio autoplay >
+  <source src="/music/happy-birthday.mp3" type="audio/mpeg">
+</audio>
+<canvas id="canvas"></canvas>
+<script>
+    var type = new TypeIt(".typeIt", {
+        strings: "HiHi, Nhân dịp ngày cô gái của anh chào đời, anh làm cái này cho em mong em vui :))",
+        speed: 75,
+        waitUntilVisible: true
+    });
+</script>
 <script src="/js/confetti.js"></script>
 <script src="/js/evelopOpen.js"></script>
 <script>
-    startConfetti();
+    type.go();
+    setTimeout(() => {
+        startConfetti();
+        document.getElementById("text-run").style.display = "none";
+        var wp = document.getElementById("wrapper");
+        wp.style.display = "block";
+        wp.style.opacity = "1";
+        
+        setTimeout(() => {
+            const card = document.getElementById("flip-card-inner");
+            card.style.transform = "rotateY(180deg)";
+            card.style.transitionDelay = "0.75s";
+            }, 2000);
+
+        setTimeout(() => {
+            setTimeout(openEnvelope, 1000);
+        }, 1000);
+    }, 9000);
 </script>
